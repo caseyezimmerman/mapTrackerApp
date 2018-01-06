@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-import Login from './src/component/Login'
+import SignUp from './src/component/SignUp'
 import MapTracker from './src/component/MapTracker'
 import { TabNavigator } from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { View } from 'react-native'
 
-const HomeScreen = () => <Login />
+const HomeScreen = () => <SignUp />
 const MapStartScreen = () => <MapTracker />
 
 
 // adjust this for navbar
 const NavBarConfig = {
   Home: { 
-    screen: Login,
+    screen: SignUp,
     navigationOptions:{
       tabBarLabel: 'Home',
       tabBarIcon: ({ focused }) => (

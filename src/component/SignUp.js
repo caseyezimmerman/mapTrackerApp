@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { Keyboard, CardSection, ScrollView, Text, TextInput, View, Button, StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
-// import signup from '../actions/authAction';
+import signup from '../actions/AuthAction';
 import t from 'tcomb-form-native'
 import _ from 'lodash'
-// import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux'
 import { TabNavigator } from 'react-navigation'
-// import { Actions } from 'react-native-router-flux';
+console.log(connect)
+
 
 
 
@@ -63,7 +64,7 @@ var Person = t.struct({
 });
 
  
-class Login extends Component {
+class SignUp extends Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -116,7 +117,7 @@ class Login extends Component {
     
 
  
-    render () {
+    render (props) {
         console.log(this.props)
         let alt = (this.state.route === 'SignUp') ? 'Login' : 'SignUp';
         return (
@@ -147,6 +148,7 @@ const mapStateToProps = (state, ownProps) => {
         isLoggedIn: state.auth.isLoggedIn
     };
 }
+console.log(mapStateToProps)
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
@@ -161,9 +163,9 @@ function mapDispatchToProps(dispatch){
 //     },dispatch)
 // }
  
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect()(SignUp);
 
-export default Login
+// export default SignUp;
 
 const styles = StyleSheet.create({
   container: {
@@ -181,7 +183,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     textAlign:'center',
     color:'white',
-    fontFamily: 'Hiragino Sans'
+    fontFamily: 'Hoefler Text'
 },
   text:{
     // fontSize:10,
