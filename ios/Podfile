@@ -19,6 +19,6 @@ target 'mapTrackerApp' do
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+ 
 
 end

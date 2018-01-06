@@ -101,6 +101,11 @@ export default class MapTracker extends Component {
           mapType='satellite'
           showsUserLocation={true}
           followUserLocation={false}
+          overlays={[{
+            coordinates: this.state.routeCoordinates,
+            strokeColor: '#19B5FE',
+            lineWidth: 10,
+          }]}
           />
         
         <View style={styles.navBar}><Text style={styles.navBarText}>Run Rabbit Run</Text></View>

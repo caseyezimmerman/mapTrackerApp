@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Login from './src/component/Login'
 import MapTracker from './src/component/MapTracker'
 import { TabNavigator } from 'react-navigation'
-// import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import { View } from 'react-native'
 
 const HomeScreen = () => <Login />
@@ -15,20 +15,27 @@ const NavBarConfig = {
     screen: Login,
     navigationOptions:{
       tabBarLabel: 'Home',
-      // tabBarIcon: ({ focused }) => (
-        // <Ionicons
-          // name={focused ? 'ios-people' : 'ios-people-outline'}
-          // size={26}
-          // style={{ color: focused ? '#33A3F4' : '#949494' }}
-        // />
-      // ),
+      tabBarIcon: ({ focused }) => (
+        <Ionicons
+          name={focused ? 'ios-people' : 'ios-people-outline'}
+          size={26}
+          style={{ color: focused ? '#33A3F4' : '#949494' }}
+        />
+      ),
     
   }
 },
   Map: { 
     screen: MapTracker,
     navigationOptions:{
-      tabBarOptions: 'Map'
+      tabBarOptions: 'Map',
+      tabBarIcon: ({ focused }) => (
+        <Ionicons
+          name={focused ? 'ios-walk' : 'ios-walk'}
+          size={26}
+          style={{ color: focused ? '#33A3F4' : '#949494' }}
+        />
+      ),
     }
   },
 }

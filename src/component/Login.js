@@ -60,7 +60,6 @@ var Person = t.struct({
   name: t.String,              // a required string
   email: t.String,  // an optional string
   password: t.Number,               // a required number
-  rememberMe: t.Boolean        // a boolean
 });
 
  
@@ -181,7 +180,8 @@ const styles = StyleSheet.create({
     marginBottom:30,
     fontSize: 40,
     textAlign:'center',
-    color:'white'
+    color:'white',
+    fontFamily: 'Hiragino Sans'
 },
   text:{
     // fontSize:10,
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
     marginBottom:30,
     borderWidth:2,
     borderColor: 'transparent',
-    width:'90%',
+    width:'60%',
     marginLeft:'5%',
     backgroundColor:'#0e2d3f',
     height:50,
@@ -206,7 +206,8 @@ const styles = StyleSheet.create({
     height:50,
     textAlign:'center',
     color:'white',
-    fontWeight:'bold'
+    fontWeight:'bold',
+    fontFamily: 'Bradley Hand'
   },
   placeholder:{
     color:'white'
