@@ -26,4 +26,4 @@ export default class mapTrackerApp extends Component {
 }
 
 
-AppRegistry.registerComponent('mapTrackerApp', () => App);
+AppRegistry.registerComponent('mapTrackerApp', () => mapTrackerApp);
