@@ -1,20 +1,21 @@
-import React, { Component } from 'react'
-import SignUp from './src/component/SignUp'
-import MapTracker from './src/component/MapTracker'
-import { TabNavigator } from 'react-navigation'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import { View } from 'react-native'
+import React, { Component } from 'react';
+import SignUp from './src/component/SignUp';
+import Login from './src/component/Login';
+import MapTracker from './src/component/MapTracker';
+import { TabNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { View } from 'react-native';
 
-const HomeScreen = () => <SignUp />
+const SignUpScreen = () => <SignUp />
+const LoginScreen = () => <Login />
 const MapStartScreen = () => <MapTracker />
-
 
 // adjust this for navbar
 const NavBarConfig = {
-  Home: { 
+  SignUp: { 
     screen: SignUp,
     navigationOptions:{
-      tabBarLabel: 'Home',
+      tabBarLabel: 'SignUp',
       tabBarIcon: ({ focused }) => (
         <Ionicons
           name={focused ? 'ios-people' : 'ios-people-outline'}
@@ -22,9 +23,21 @@ const NavBarConfig = {
           style={{ color: focused ? '#33A3F4' : '#949494' }}
         />
       ),
-    
-  }
-},
+    }
+  },
+  Login:{
+    screen: Login,
+    navigationOptions: {
+      tabBarLabel: 'Login',
+      tabBarIcon: ({ focused }) => (
+        <Ionicons
+          name={focused ? 'ios-people' : 'ios-people-outline'}
+          size={26}
+          style={{ color: focused ? '#33A3F4' : '#949494' }}
+        />
+      ),
+    }
+  },
   Map: { 
     screen: MapTracker,
     navigationOptions:{

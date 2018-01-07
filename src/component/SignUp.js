@@ -34,7 +34,7 @@ var options = {
 	stylesheet: stylesheet
 };
 
-var Person = t.struct({
+var SignUpForm = t.struct({
   name: t.String,
   email: t.String,
   password: t.Number,
@@ -59,10 +59,9 @@ class SignUp extends Component {
 		this.props.onSignUp(name,email,password,navigator);    
 	}
 
-	toggleRoute (e) {
-		let alt = (this.state.route === 'SignUp') ? 'Login' : 'SignUp';
-		this.setState({ route: alt });
+	toggleRoute (e, navigator) {
 		e.preventDefault();
+		this.setState({ route: alt });
 	}
 
 	onPress (e) { e.preventDefault() }
@@ -76,23 +75,31 @@ class SignUp extends Component {
 				<Text style={styles.login}>{this.state.route}</Text>
 					<Form style={styles.form} 
 						ref="form"
-						type={Person}
+						type={SignUpForm}
 						options={options}
-					/>
-					<Button
-						onPress={() => this.props.navigation.navigate('Map')}
-						title="Map"
 					/>
 				<View style={{margin: 7}}/>                        
 				<TouchableOpacity>
-					<Text style={styles.button} onPress={(e) => this.userSignUp(e, this.props.navigation)} title={this.state.route}>Sign Up</Text>
+					<Text 
+						style={styles.button} onPress={(e) => 
+							this.userSignUp(e, this.props.navigation)} 
+							title={this.state.route}
+					>
+						Sign Up
+					</Text>
 				</TouchableOpacity>
-				<Text style={styles.text} onPress={(e) => this.toggleRoute(e)}>{alt}</Text>
+				<Text 
+					style={styles.text} onPress={() => 
+						this.props.navigation.navigate('Login')}
+				>
+					Already have an account? Login
+				</Text>
 			</ScrollView>
 		);
 	}
 }
 
+// state.auth ?
 const mapStateToProps = (state, ownProps) => {
 	return {
 		isLoggedIn: state.auth.isLoggedIn

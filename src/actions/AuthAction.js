@@ -10,9 +10,8 @@ function signup(name,email,password,navigator){
 		password: password
 		}
 	})
+	// pass desired route as string
 	.then((data)=>{
-		console.log('hi')
-		console.log(data)
 		navigator.navigate('Map')
 		return data
 	})
@@ -24,8 +23,10 @@ function signup(name,email,password,navigator){
 
 export default signup
 
+// need return empty state/remove token
 export const logout = () => {
     return {
-        type: 'LOGOUT'
+		type: 'LOGOUT',
+		payload: '[]'
     };
 };
