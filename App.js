@@ -5,10 +5,12 @@ import MapTracker from './src/component/MapTracker';
 import { TabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { View } from 'react-native';
+import StopWatch from './src/component/Results'
 
 const SignUpScreen = () => <SignUp />
 const LoginScreen = () => <Login />
 const MapStartScreen = () => <MapTracker />
+const StopWatchScreen = () => <StopWatch />
 
 // adjust this for navbar
 const NavBarConfig = {
@@ -45,6 +47,19 @@ const NavBarConfig = {
       tabBarIcon: ({ focused }) => (
         <Ionicons
           name={focused ? 'ios-walk' : 'ios-walk'}
+          size={26}
+          style={{ color: focused ? '#33A3F4' : '#949494' }}
+        />
+      ),
+    }
+  },
+    Watch: { 
+    screen: StopWatch,
+    navigationOptions:{
+      tabBarOptions: 'Map',
+      tabBarIcon: ({ focused }) => (
+        <Ionicons
+          name={focused ? 'ios-clock' : 'ios-clock'}
           size={26}
           style={{ color: focused ? '#33A3F4' : '#949494' }}
         />
