@@ -11,7 +11,8 @@ import {
   View,
   Text,
   Dimensions,
-  StatusBarIOS
+  StatusBarIOS,
+  Button
 } from 'react-native'
 import MapView from 'react-native-maps'
 
@@ -28,36 +29,104 @@ export default class MapTracker extends Component {
       routeCoordinates: [],
       distanceTravelled: 0,
       prevLatLng: {},
-      currentLatLng: {}
+      currentLatLng: {},
+      timer: null,
+      minutes: '00',
+      counter: '00',
+      miliseconds: '00',
+      startDisabled: true,
+      stopDisabled: false
     }
     this.startWatch = this.startWatch.bind(this)
+    this.onButtonStart = this.onButtonStart.bind(this);
+    this.onButtonStop = this.onButtonStop.bind(this);
+    this.onButtonClear = this.onButtonClear.bind(this);
+    this.start = this.start.bind(this);
   }
 
-  // componentDidMount() {
-  //   // StatusBarIOS.setStyle('light-content')
-  //   navigator.geolocation.getCurrentPosition(
-  //     (position) => {
-  //       console.log(position)
-  //       const { routeCoordinates } = this.state
-  //       // const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
-  //       const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
-  //       this.setState({
-  //         // routeCoordinates: routeCoordinates.concat(positionLatLngs),
-  //         // distanceTravelled: distanceTravelled + this.calcDistance(newLatLngs),
-  //         // prevLatLng: newLatLngs,
-  //         currentLatLng: position.coords
-  //       })
-  //     },
-  //     (error) => alert(error.message),
-  //     // {enableHighAccuracy: true, timeout: 1000, maximumAge: 10000000000000}
-  //   )
+  componentDidMount() {
+    // StatusBarIOS.setStyle('light-content')
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position)
+        const { routeCoordinates } = this.state
+        // const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
+        const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
+        this.setState({
+          // routeCoordinates: routeCoordinates.concat(positionLatLngs),
+          // distanceTravelled: distanceTravelled + this.calcDistance(newLatLngs),
+          // prevLatLng: newLatLngs,
+          currentLatLng: position.coords
+        })
+      },
+      (error) => alert(error.message),
+      // {enableHighAccuracy: true, timeout: 1000, maximumAge: 10000000000000}
+    )
   //   // this.watchID = navigator.geolocation.watchPosition((position) => {
 
-  //   // });
-  // }
+    // });
+
+    //   componentWillUnmount() {
+    //     clearInterval(this.state.timer);
+    }
+ 
+ 
+ 
+    start() {
+        var self = this;
+        let timer = setInterval(() => {
+            var num = (Number(this.state.miliseconds) + 1).toString(),
+                count = this.state.counter;
+            console.log(num)
+            if( Number(this.state.miliseconds) == 40 ) {
+                count = (Number(this.state.counter) + 1).toString();
+                num = '00';
+            }
+            var min = this.state.minutes;
+            if( Number(this.state.counter) == 60 ) {
+                min = (Number(this.state.minutes) + 1).toString();
+                num = '00';
+                count = '00';
+            }
+            console.log(min)
+            self.setState({
+                minutes: min.length == 1 ? '0'+min : min,
+                counter: count.length == 1 ? '0'+count : count,
+                miliseconds: num.length == 1 ? '0'+num : num
+            });
+        }, 0);
+        this.setState({timer});
+    }
+ 
+ 
+ 
+ 
+ 
+    onButtonStart() {
+ 
+        this.start();
+        this.setState({startDisabled: true, stopDisabled: false});
+    }
+ 
+ 
+    onButtonStop() {
+        clearInterval(this.state.timer);
+        this.setState({startDisabled: false, stopDisabled: true});
+    }
+ 
+ 
+    onButtonClear() {
+        this.setState({
+            timer: null,
+            minutes:'00',
+            counter: '00',
+            miliseconds: '00'
+        });
+    }
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);
+    clearInterval(this.state.timer);
   }
 
   calcDistance(newLatLng) {
@@ -111,10 +180,36 @@ export default class MapTracker extends Component {
         <View style={styles.navBar}><Text style={styles.navBarText}>Run Rabbit Run</Text></View>
         <View style={styles.bottomBar}>
           <View style={styles.bottomBarGroup}>
-            <Text style={styles.bottomBarHeader}>DISTANCE</Text>
+    
             <Text onPress = {this.startWatch}>START</Text>
-            <Text style={styles.bottomBarContent}>{parseFloat(this.state.distanceTravelled).toFixed(2)} km</Text>
+            <Text style={styles.bottomBarContent}></Text>
           </View>
+          <Text style={styles.counter}>{this.state.minutes}:</Text>
+          <Text style={styles.counter}>{this.state.counter}</Text>
+                
+                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <Button onPress={this.start}
+                        disabled={this.state.stopDisabled}
+                        onPress={this.onButtonStart}
+                        title="Start"
+                        color="#11a029"
+                        accessibilityLabel="Start"
+                    />
+                    <Button
+                        disabled={this.state.stopDisabled}
+                        onPress={this.onButtonStop}
+                        title="Stop"
+                        color="#ff0000"
+                        accessibilityLabel="Stop"
+                    />
+                    <Button
+                        disabled={this.state.startDisabled}
+                        onPress={this.onButtonClear}
+                        title="Clear"
+                        color="#ff0000"
+                        accessibilityLabel="Clear"
+                    />
+                </View>
         </View>
       </View>
     );
@@ -176,4 +271,18 @@ const styles = StyleSheet.create({
     color: '#19B5FE',
     textAlign: 'center'
   },
+  counter: {
+      fontSize: 30,
+      textAlign: 'center',
+      height: 40,
+      margin: 10,
+  },
+  miniCounter: {
+      fontSize:20,
+      position: 'relative',
+      bottom:-27,
+      left: -10
+  }
 })
+
+// <Text style={styles.miniCounter}>{this.state.miliseconds}</Text>
