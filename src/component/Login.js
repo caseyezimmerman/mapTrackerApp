@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, CardSection, ScrollView, Text, TextInput, View, Button, StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
-import LoginAction from '../actions/AuthAction';
+import LoginAction from '../actions/LoginAction';
 import t from 'tcomb-form-native'
 import _ from 'lodash'
 import { bindActionCreators } from 'redux'
@@ -52,15 +52,9 @@ class Login extends Component {
 
 	userLogin(e, navigator) {
 		e.preventDefault();
-		var name = (this.refs.form.getComponent('name').props.value)
 		var email = (this.refs.form.getComponent('email').props.value)
 		var password = (this.refs.form.getComponent('password').props.value)
-		this.props.onLogin(name, email, password, navigator);
-	}
-
-	toggleRoute(e, navigator) {
-		e.preventDefault();
-		this.setState({ route: alt });
+		this.props.onLogin(email, password, navigator);
 	}
 
 	onPress(e) { e.preventDefault() }
@@ -68,7 +62,6 @@ class Login extends Component {
 	componentWillMount(newProps) {}
 
 	render(props) {
-		let alt = (this.state.route === 'Login') ? 'Login' : 'Login';
 		return (
 			<ScrollView style={{ padding: 20, backgroundColor: '#1d4a5f' }}>
 				<Text style={styles.login}>{this.state.route}</Text>
@@ -80,15 +73,17 @@ class Login extends Component {
 				<View style={{ margin: 7 }} />
 				<TouchableOpacity>
 					<Text
-						style={styles.button} onPress={(e) =>
+						style={styles.button} 
+						onPress={(e) =>
 							this.userLogin(e, this.props.navigation)}
-						title={this.state.route}
+							title={this.state.route}
 					>
 						Login
 					</Text>
 				</TouchableOpacity>
 				<Text
-					style={styles.text} onPress={() =>
+					style={styles.text} 
+					onPress={() =>
 						this.props.navigation.navigate('SignUp')}
 				>
 					Don't have an account? Sign Up!
@@ -107,11 +102,11 @@ const mapStateToProps = (state, ownProps) => {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		onLogin: Login
+		onLogin: LoginAction
 	}, dispatch)
 }
 
-export default connect()(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 
 const styles = StyleSheet.create({
 	container: {

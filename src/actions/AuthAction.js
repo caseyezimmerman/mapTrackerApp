@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function signup(name,email,password,navigator){
+function SignUpAction(name,email,password,navigator){
 	var axiosPromise = axios({
 	method: 'POST',
 	url: 'http://localhost:3000/signup',
@@ -21,12 +21,10 @@ function signup(name,email,password,navigator){
     };
 };
 
-export default signup
+export default SignUpAction;
 
-// need return empty state/remove token
 export const logout = () => {
     return {
-		type: 'LOGOUT',
-		payload: '[]'
+		type: 'LOGOUT'
     };
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, CardSection, ScrollView, Text, TextInput, View, Button, StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
-import signup from '../actions/AuthAction';
+import SignUpAction from '../actions/AuthAction';
 import t from 'tcomb-form-native'
 import _ from 'lodash'
 import { bindActionCreators } from 'redux'
@@ -59,17 +59,11 @@ class SignUp extends Component {
 		this.props.onSignUp(name,email,password,navigator);    
 	}
 
-	toggleRoute (e, navigator) {
-		e.preventDefault();
-		this.setState({ route: alt });
-	}
-
 	onPress (e) { e.preventDefault() }
 
 	componentWillMount(newProps){}
 
 	render (props) {
-		let alt = (this.state.route === 'SignUp') ? 'Login' : 'SignUp';
 		return (
 			<ScrollView style={{padding: 20, backgroundColor:'#1d4a5f'}}>
 				<Text style={styles.login}>{this.state.route}</Text>
@@ -108,12 +102,12 @@ const mapStateToProps = (state, ownProps) => {
 
 function mapDispatchToProps(dispatch){
 	return bindActionCreators({
-		onSignUp: signup
+		onSignUp: SignUpAction
 	},dispatch)
 }
 
  
-export default connect()(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
 
 const styles = StyleSheet.create({
   container: {
