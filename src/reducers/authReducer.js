@@ -1,6 +1,6 @@
 function reducer(state = [], action){
 	if(action.type === 'SIGNUP'){
-		return action.payload.data
+		return action.payload
 	} else if (action.type === 'LOGIN'){
 		return action.payload
 	} else if (action.type === 'LOGOUT'){

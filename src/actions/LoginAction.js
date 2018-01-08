@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function LoginAction(email,password,navigator) {
+function LoginAction(email,password,error,navigator) {
     var axiosPromise = axios({
         method: 'POST',
         url: 'http://localhost:3000/login',
@@ -9,23 +9,27 @@ function LoginAction(email,password,navigator) {
             password: password
         }
     }).then((data) => {
-        console.log(data)
         // error handling
-        if (data.data.msg === "userDoesNotExist") {
-            // tell user need to make an account
-            navigator.navigate('SignUp')
-        } else if (data.data.msg === "wrongPassword") {
+        const theData = data.data;
+        if (theData.msg === "userDoesNotExist") {
+            // tell user email not found
+            navigator.navigate('SignUp', 
+                { msg: "This account was not found"})
+        } else if (theData.msg === "wrongPassword") {
             // tell user wrong password
+            navigator.navigate('Login', 
+                { msg: "Password does not match" })
         } else {
-            navigator.navigate('Map')
+            navigator.navigate('Map', 
+                { msg: "Have a great run!" })
         }
         return data
-    })
-    // pass desired route as string
+    });
+
     return {
         type: 'LOGIN',
         payload: axiosPromise,
-        navigator: navigator
+        navigator: navigator,
     }
 };
 
