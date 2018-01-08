@@ -15,8 +15,7 @@ class Results extends Component{
   	
     return (
     <View>
-      <Text>{this.props.results.data.minutes}</Text>
-      <Text>{this.props.results.data.seconds}</Text>
+      <Text style={styles.time}>{this.props.results.data.minutes}:{this.props.results.data.seconds}</Text>
     </View>
     )
   }
@@ -28,6 +27,14 @@ const mapStateToProps = (state, ownProps) => {
 	};
 }
 
+const styles = StyleSheet.create({
+	time:{
+		// flex:1,
+		textAlign:'center',
+		fontSize:40,
+		marginTop:200
+	}
+})
 
 
 export default connect(mapStateToProps)(Results);

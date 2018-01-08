@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, CardSection, ScrollView, Text, TextInput, View, Button, StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { Image, Keyboard, CardSection, ScrollView, Text, TextInput, View, Button, StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
 import SignUpAction from '../actions/AuthAction';
 import t from 'tcomb-form-native'
 import _ from 'lodash'
@@ -19,6 +19,7 @@ stylesheet.textboxView.normal.borderRadius = 0;
 stylesheet.textboxView.error.borderRadius = 0;
 stylesheet.textboxView.normal.borderBottomWidth = 1;
 stylesheet.textboxView.error.borderBottomWidth = 1;
+stylesheet.textboxView.normal.borderBottomColor= 'black'
 stylesheet.textbox.normal.marginBottom = 5;
 stylesheet.textbox.error.marginBottom = 5;
 stylesheet.textbox.normal.fontSize = 20
@@ -78,29 +79,34 @@ class SignUp extends Component {
 
 	render (props) {
 		return (
-			<ScrollView style={{padding: 20, backgroundColor:'#1d4a5f'}}>
-				<Text style={styles.login}>{this.state.route}</Text>
+			<ScrollView>
+				      
+				<Image
+					style={styles.image}
+          			source={require('../../images/shoe.png')}
+        		/>
+				
 					<Form style={styles.form} 
 						ref="form"
 						type={SignUpForm}
 						options={options}
 					/>
-				<View style={{margin: 7}}/>                        
-				<TouchableOpacity>
+				                        
+				
 					<Text 
 						style={styles.button} onPress={(e) => 
-							this.userSignUp(e, this.props.navigation)} 
-							title={this.state.route}
+							this.userSignUp(e, this.props.navigation)} 							
 					>
 						Sign Up
 					</Text>
-				</TouchableOpacity>
+				
 				<Text 
 					style={styles.text} onPress={() => 
 						this.props.navigation.navigate('Login')}
 				>
 					Already have an account? Login
 				</Text>
+				
 			</ScrollView>
 		);
 	}
@@ -125,47 +131,67 @@ export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.9,
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
 },
   login: {
-    marginTop:50,
-    marginBottom:30,
+    // marginTop:20,
+    // marginBottom:30,
     fontSize: 40,
     textAlign:'center',
     color:'white',
     fontFamily: 'Hoefler Text'
 },
   text:{
-    marginTop:40,
-    color: 'white'
+    marginTop:20,
+    color: 'black'
 
 },
   input:{
-    marginBottom:30,
+    // marginBottom:10,
     borderWidth:2,
     borderColor: 'transparent',
     width:'60%',
     marginLeft:'5%',
     backgroundColor:'#0e2d3f',
     height:50,
-    color:'white'
+    color:'black'
   },
   button:{
     fontSize:25,
-    backgroundColor:'#50dcc1',
-    height:50,
+    // backgroundColor:'#50dcc1',
+    // height:50,
     textAlign:'center',
-    color:'white',
+    color:'black',
     fontWeight:'bold',
-    fontFamily: 'Bradley Hand'
+    // fontFamily: 'Bradley Hand'
   },
   placeholder:{
     color:'white'
   },
   form:{
     marginBottom:20,
+    width:'80%'
+  },
+  image:{
+  	marginLeft:70,
+  	marginBottom: 20
   }
 });
+
+
+
+// <Image
+//     style={{
+//       // backgroundColor: '#ccc',
+//       flex: 1,
+//       position: 'absolute',
+//       width: '100%',
+//       height: '150%',
+//       justifyContent: 'center',
+//     }}
+//     source={require('../../images/bg.jpg')}
+//   />
+
