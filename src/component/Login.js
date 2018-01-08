@@ -31,12 +31,18 @@ stylesheet.textbox.normal.placeholderTextColor
 var Form = t.form.Form
 var options = {
 	auto: 'placeholders',
-	stylesheet: stylesheet
+	stylesheet: stylesheet,
+	fields: {
+		password: {
+			password: true,
+			secureTextEntry: true
+		}
+	}
 };
 
 var LoginForm = t.struct({
 	email: t.String,
-	password: t.Number,
+	password: t.String,
 });
 
 class Login extends Component {
@@ -55,17 +61,20 @@ class Login extends Component {
 		e.preventDefault();
 		var email = (this.refs.form.getComponent('email').props.value)
 		var password = (this.refs.form.getComponent('password').props.value)
-		this.props.onLogin(email, password, navigator);
+		var error = '';
+		this.props.onLogin(email, password, error, navigator);
 	}
 
 	onPress(e) { e.preventDefault() }
 
-	componentWillMount(newProps) {}
-	// need to place error messages here via this.props
-	render(props) {
+	// need to place error messages here via navigation property
+	render() {
+		if (this.props.navigation.state.params !== undefined) {
+			var userMsg = this.props.navigation.state.params.msg
+		}
 		return (
 			<ScrollView style={{ padding: 20, backgroundColor: '#1d4a5f' }}>
-				<Text style={styles.login}>{this.state.route}</Text>
+				<Text style={styles.login}>{userMsg}</Text>
 				<Form style={styles.form}
 					ref="form"
 					type={LoginForm}
@@ -97,7 +106,7 @@ class Login extends Component {
 // state.auth ?
 const mapStateToProps = (state, ownProps) => {
 	return {
-		isLoggedIn: state.auth.isLoggedIn
+		auth: state.auth
 	};
 }
 

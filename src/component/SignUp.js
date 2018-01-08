@@ -29,13 +29,6 @@ stylesheet.textbox.normal.placeholderTextColor
 
 // tcomb
 var Form = t.form.Form 
-// var options = {
-// 	auto: 'placeholders',
-// 	stylesheet: stylesheet,
-// 	password: true,
-// 	secureTextEntry: true
-// };
-
 var options = {
   auto: 'placeholders',
   stylesheet: stylesheet,
@@ -52,14 +45,15 @@ var SignUpForm = t.struct({
   email: t.String,
   password: t.String,
 });
- 
+
 class SignUp extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
 				route: 'SignUp',
 				username: '',
-				password: ''
+				password: '',
+				error: ''
 		};
 		this.onPress = this.onPress.bind(this)
 	}
@@ -69,22 +63,28 @@ class SignUp extends Component {
 		var name = (this.refs.form.getComponent('name').props.value) 
 		var email = (this.refs.form.getComponent('email').props.value)
 		var password = (this.refs.form.getComponent('password').props.value)  
-		this.props.onSignUp(name,email,password,navigator);    
+		var error = '';
+		this.props.onSignUp(name,email,password,error,navigator);    
 	}
 
 	onPress (e) { e.preventDefault() }
 
 	componentWillMount(newProps){}
 
-	render (props) {
+	render () {
+		if(this.props.navigation.state.params !== undefined){
+			var userMsg = this.props.navigation.state.params.msg
+			console.log(userMsg)
+		}	
 		return (
 			<ScrollView style={{padding: 20, backgroundColor:'#1d4a5f'}}>
-				<Text style={styles.login}>{this.state.route}</Text>
+				<Text style={styles.login}>{userMsg}</Text>
 					<Form style={styles.form} 
 						ref="form"
 						type={SignUpForm}
 						options={options}
 					/>
+				<Text>{this.props.auth.msg}</Text>
 				<View style={{margin: 7}}/>                        
 				<TouchableOpacity>
 					<Text 
@@ -109,7 +109,7 @@ class SignUp extends Component {
 // state.auth ?
 const mapStateToProps = (state, ownProps) => {
 	return {
-		isLoggedIn: state.auth.isLoggedIn
+		auth: state.auth
 	};
 }
 
