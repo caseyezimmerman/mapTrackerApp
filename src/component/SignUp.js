@@ -75,9 +75,10 @@ class SignUp extends Component {
 
 	onPress (e) { e.preventDefault() }
 
-	componentWillMount(newProps){}
-
 	render (props) {
+		if (this.props.navigation.state.params !== undefined) {
+			var userMsg = this.props.navigation.state.params.msg
+		}
 		return (
 			<ScrollView>
 				      

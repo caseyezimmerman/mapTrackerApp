@@ -70,9 +70,10 @@ class Login extends Component {
 
 	onPress(e) { e.preventDefault() }
 
-	componentWillMount(newProps) {}
-	// need to place error messages here via this.props
-	render(props) {
+	render() {
+		if (this.props.navigation.state.params !== undefined) {
+			var userMsg = this.props.navigation.state.params.msg
+		}
 		return (
 			<ScrollView style={{ padding: 20, backgroundColor: '#1d4a5f' }}>
 				<Text style={styles.login}>{this.state.route}</Text>
