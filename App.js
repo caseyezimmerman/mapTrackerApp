@@ -5,12 +5,12 @@ import MapTracker from './src/component/MapTracker';
 import { TabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { View } from 'react-native';
-import StopWatch from './src/component/Results'
+import Results from './src/component/Results'
 
 const SignUpScreen = () => <SignUp />
 const LoginScreen = () => <Login />
 const MapStartScreen = () => <MapTracker />
-const StopWatchScreen = () => <StopWatch />
+const StopWatchScreen = () => <Results />
 
 // adjust this for navbar
 const NavBarConfig = {
@@ -54,7 +54,7 @@ const NavBarConfig = {
     }
   },
     Watch: { 
-    screen: StopWatch,
+    screen: Results,
     navigationOptions:{
       tabBarOptions: 'Map',
       tabBarIcon: ({ focused }) => (

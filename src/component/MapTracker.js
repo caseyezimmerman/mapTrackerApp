@@ -78,7 +78,7 @@ export default class MapTracker extends Component {
             var num = (Number(this.state.miliseconds) + 1).toString(),
                 count = this.state.counter;
             console.log(num)
-            if( Number(this.state.miliseconds) == 40 ) {
+            if( Number(this.state.miliseconds) == 50 ) {
                 count = (Number(this.state.counter) + 1).toString();
                 num = '00';
             }
@@ -167,7 +167,7 @@ export default class MapTracker extends Component {
             latitudeDelta: .007,
             longitudeDelta: .007,
           }}
-          mapType='satellite'
+          mapType='standard'
           showsUserLocation={true}
           followUserLocation={false}
           overlays={[{
