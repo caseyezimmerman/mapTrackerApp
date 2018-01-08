@@ -6,11 +6,13 @@ import { TabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { View } from 'react-native';
 import Results from './src/component/Results'
+import Profile from './src/component/Profile'
 
 const SignUpScreen = () => <SignUp />
 const LoginScreen = () => <Login />
 const MapStartScreen = () => <MapTracker />
 const StopWatchScreen = () => <Results />
+const ProfileScreen = () => <Profile />
 
 // adjust this for navbar
 const NavBarConfig = {
@@ -55,6 +57,19 @@ const NavBarConfig = {
   },
     Results: { 
     screen: Results,
+    navigationOptions:{
+      tabBarOptions: 'Map',
+      tabBarIcon: ({ focused }) => (
+        <Ionicons
+          name={focused ? 'ios-clock' : 'ios-clock'}
+          size={26}
+          style={{ color: focused ? '#33A3F4' : '#949494' }}
+        />
+      ),
+    }
+  },
+    Profile: { 
+    screen: Profile,
     navigationOptions:{
       tabBarOptions: 'Map',
       tabBarIcon: ({ focused }) => (

@@ -29,14 +29,24 @@ stylesheet.textbox.normal.placeholderTextColor
 
 // tcomb
 var Form = t.form.Form
+// var options = {
+// 	auto: 'placeholders',
+// 	stylesheet: stylesheet
+// };
 var options = {
-	auto: 'placeholders',
-	stylesheet: stylesheet
+  auto: 'placeholders',
+  stylesheet: stylesheet,
+  fields: {
+    password: {
+      password: true,
+      secureTextEntry: true
+    }
+  }
 };
 
 var LoginForm = t.struct({
 	email: t.String,
-	password: t.Number,
+	password: t.String,
 });
 
 class Login extends Component {

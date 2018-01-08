@@ -17,6 +17,8 @@ target 'mapTrackerApp' do
   pod "yoga", :path => "#{react_native_path}/ReactCommon/yoga"
   pod "React", :path => react_native_path
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
 
   
  
