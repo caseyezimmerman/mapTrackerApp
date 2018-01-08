@@ -29,15 +29,28 @@ stylesheet.textbox.normal.placeholderTextColor
 
 // tcomb
 var Form = t.form.Form 
+// var options = {
+// 	auto: 'placeholders',
+// 	stylesheet: stylesheet,
+// 	password: true,
+// 	secureTextEntry: true
+// };
+
 var options = {
-	auto: 'placeholders',
-	stylesheet: stylesheet
+  auto: 'placeholders',
+  stylesheet: stylesheet,
+  fields: {
+    password: {
+      password: true,
+      secureTextEntry: true
+    }
+  }
 };
 
 var SignUpForm = t.struct({
   name: t.String,
   email: t.String,
-  password: t.Number,
+  password: t.String,
 });
  
 class SignUp extends Component {
@@ -108,6 +121,7 @@ function mapDispatchToProps(dispatch){
 
  
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+
 
 const styles = StyleSheet.create({
   container: {

@@ -53,7 +53,7 @@ const NavBarConfig = {
       ),
     }
   },
-    Watch: { 
+    Results: { 
     screen: Results,
     navigationOptions:{
       tabBarOptions: 'Map',

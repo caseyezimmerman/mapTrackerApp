@@ -15,13 +15,15 @@ import {
   Button
 } from 'react-native'
 import MapView from 'react-native-maps'
-
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import haversine from 'haversine'
 import pick from 'lodash/pick'
+import MapAction from '../actions/MapAction'
 
 const { width, height } = Dimensions.get('window')
 
-export default class MapTracker extends Component {
+class MapTracker extends Component {
   constructor(props) {
     super(props)
 
@@ -42,6 +44,7 @@ export default class MapTracker extends Component {
     this.onButtonStop = this.onButtonStop.bind(this);
     this.onButtonClear = this.onButtonClear.bind(this);
     this.start = this.start.bind(this);
+    this.timerStop = this.timerStop.bind(this)
   }
 
   componentDidMount() {
@@ -112,6 +115,18 @@ export default class MapTracker extends Component {
     onButtonStop() {
         clearInterval(this.state.timer);
         this.setState({startDisabled: false, stopDisabled: true});
+        console.log(this.state.counter)
+        console.log(this.state.minutes)
+        
+    }
+
+    timerStop(e, navigator){
+      e.preventDefault()
+      clearInterval(this.state.timer);
+      this.setState({startDisabled: false, stopDisabled: true});
+      var timerSeconds = this.state.counter
+      var timerMinutes = this.state.minutes
+      this.props.onMap(timerSeconds,timerMinutes,navigator)
     }
  
  
@@ -141,7 +156,7 @@ export default class MapTracker extends Component {
       {enableHighAccuracy: true, timeout: 100, maximumAge: 0}
     )
     this.watchID = navigator.geolocation.watchPosition((position) => {
-      console.log(position)
+      // console.log(position)
       const { routeCoordinates, distanceTravelled } = this.state
       const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
       const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
@@ -156,7 +171,7 @@ export default class MapTracker extends Component {
 
 
   render() {
-    console.log(this.state.currentLatLng)
+    // console.log(this.state.currentLatLng)
     return (
       <View style={styles.container}>
         <MapView
@@ -197,7 +212,8 @@ export default class MapTracker extends Component {
                     />
                     <Button
                         disabled={this.state.stopDisabled}
-                        onPress={this.onButtonStop}
+                        onPress={(e) => 
+                          this.timerStop(e, this.props.navigation)}
                         title="Stop"
                         color="#ff0000"
                         accessibilityLabel="Stop"
@@ -215,6 +231,20 @@ export default class MapTracker extends Component {
     );
   }
 }
+
+function mapStateToProps(){
+  return{
+    map: state.map
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    onMap: MapAction
+  }, dispatch)
+}
+
+export default connect(null,mapDispatchToProps)(MapTracker)
 
 const styles = StyleSheet.create({
   container: {
