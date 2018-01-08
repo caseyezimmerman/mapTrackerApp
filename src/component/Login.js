@@ -45,7 +45,8 @@ class Login extends Component {
 		this.state = {
 			route: 'Login',
 			username: '',
-			password: ''
+			password: '',
+			error: ''
 		};
 		this.onPress = this.onPress.bind(this)
 	}
@@ -60,7 +61,7 @@ class Login extends Component {
 	onPress(e) { e.preventDefault() }
 
 	componentWillMount(newProps) {}
-
+	// need to place error messages here via this.props
 	render(props) {
 		return (
 			<ScrollView style={{ padding: 20, backgroundColor: '#1d4a5f' }}>
