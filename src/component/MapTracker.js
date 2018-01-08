@@ -48,30 +48,48 @@ class MapTracker extends Component {
   }
 
   componentDidMount() {
-    // StatusBarIOS.setStyle('light-content')
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log(position)
-        const { routeCoordinates } = this.state
-        // const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
-        const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
-        this.setState({
-          // routeCoordinates: routeCoordinates.concat(positionLatLngs),
-          // distanceTravelled: distanceTravelled + this.calcDistance(newLatLngs),
-          // prevLatLng: newLatLngs,
-          currentLatLng: position.coords
-        })
-      },
+      navigator.geolocation.getCurrentPosition(
+      (position) => {},
       (error) => alert(error.message),
-      // {enableHighAccuracy: true, timeout: 1000, maximumAge: 10000000000000}
+      {enableHighAccuracy: true, timeout: 100, maximumAge: 0}
     )
-  //   // this.watchID = navigator.geolocation.watchPosition((position) => {
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      // console.log(position)
+      const { routeCoordinates, distanceTravelled } = this.state
+      const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
+      const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
+      this.setState({
+        routeCoordinates: routeCoordinates.concat(positionLatLngs),
+        distanceTravelled: distanceTravelled + this.calcDistance(newLatLngs),
+        prevLatLng: newLatLngs,
+        currentLatLng: position.coords
+      })
+    });
+  }
+  //   // StatusBarIOS.setStyle('light-content')
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       console.log(position)
+  //       const { routeCoordinates } = this.state
+  //       const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
+  //       const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
+  //       this.setState({
+  //         routeCoordinates: routeCoordinates.concat(positionLatLngs),
+  //         distanceTravelled: distanceTravelled + this.calcDistance(newLatLngs),
+  //         prevLatLng: newLatLngs,
+  //         currentLatLng: position.coords
+  //       })
+  //     },
+  //     (error) => alert(error.message),
+  //     {enableHighAccuracy: true, timeout: 1000, maximumAge: 10000000000000}
+  //   )
+  // //   // this.watchID = navigator.geolocation.watchPosition((position) => {
 
-    // });
+  //   // });
 
-    //   componentWillUnmount() {
-    //     clearInterval(this.state.timer);
-    }
+  //   //   componentWillUnmount() {
+  //   //     clearInterval(this.state.timer);
+  //   }
  
  
  
@@ -126,7 +144,9 @@ class MapTracker extends Component {
       this.setState({startDisabled: false, stopDisabled: true});
       var timerSeconds = this.state.counter
       var timerMinutes = this.state.minutes
-      this.props.onMap(timerSeconds,timerMinutes,navigator)
+      var distance = this.state.distanceTravelled
+      this.props.onMap(timerSeconds,timerMinutes,distance, navigator)
+
     }
  
  

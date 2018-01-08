@@ -25,7 +25,7 @@ stylesheet.textbox.error.marginBottom = 5;
 stylesheet.textbox.normal.fontSize = 20
 stylesheet.textboxView.normal.marginBottom = 30
 stylesheet.textboxView.error.marginBottom = 30
-stylesheet.textbox.normal.color = 'white'
+stylesheet.textbox.normal.color = 'black'
 stylesheet.textbox.normal.placeholderTextColor
 
 // tcomb

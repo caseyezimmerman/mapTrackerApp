@@ -9,6 +9,8 @@ class Results extends Component{
   	if( this.props.results.data === undefined){
   		this.props.results.data = ""
   	}
+  	// var distance = (this.props.results.data.distance).toFixed(2)
+  	// console.log(distance)
   	// }else if(this.props.results.data.seconds === undefined){
   	// 	this.props.results.data.seconds = ""
   	// }
@@ -16,6 +18,7 @@ class Results extends Component{
     return (
     <View>
       <Text style={styles.time}>{this.props.results.data.minutes}:{this.props.results.data.seconds}</Text>
+      <Text style={styles.time}>{this.props.results.data.distance}</Text>
     </View>
     )
   }
