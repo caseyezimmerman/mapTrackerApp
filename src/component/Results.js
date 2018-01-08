@@ -14,11 +14,16 @@ class Results extends Component{
   	// }else if(this.props.results.data.seconds === undefined){
   	// 	this.props.results.data.seconds = ""
   	// }
-  	
+  	if(this.props.results.data.distance != undefined){
+
+
+  	var distance = (this.props.results.data.distance).toFixed(2)
+  	console.log(distance)
+  }
     return (
     <View>
       <Text style={styles.time}>{this.props.results.data.minutes}:{this.props.results.data.seconds}</Text>
-      <Text style={styles.time}>{this.props.results.data.distance}</Text>
+      <Text style={styles.time}>{distance}</Text>
     </View>
     )
   }

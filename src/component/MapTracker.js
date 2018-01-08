@@ -98,7 +98,7 @@ class MapTracker extends Component {
         let timer = setInterval(() => {
             var num = (Number(this.state.miliseconds) + 1).toString(),
                 count = this.state.counter;
-            console.log(num)
+            // console.log(num)
             if( Number(this.state.miliseconds) == 50 ) {
                 count = (Number(this.state.counter) + 1).toString();
                 num = '00';
@@ -109,7 +109,7 @@ class MapTracker extends Component {
                 num = '00';
                 count = '00';
             }
-            console.log(min)
+            // console.log(min)
             self.setState({
                 minutes: min.length == 1 ? '0'+min : min,
                 counter: count.length == 1 ? '0'+count : count,
