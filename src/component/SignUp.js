@@ -180,12 +180,15 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     borderRadius: 30,
     backgroundColor:'#71afd6',
-    marginLeft: 35
+    marginLeft: 35,
+    marginTop:30
   },
   signup:{
   	fontSize:20,
   	textAlign:'center',
-    color:'slategrey'
+    color:'slategrey',
+    backgroundColor: 'transparent',
+
 
   },
   placeholder:{
@@ -193,7 +196,7 @@ const styles = StyleSheet.create({
   },
   form:{
   	marginLeft:50,
-    marginBottom:30,
+    marginBottom:100,
     width:'80%'
   },
   image:{
