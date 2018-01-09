@@ -88,7 +88,7 @@ class Login extends Component {
 			<ScrollView style={{backgroundColor:'#337ab2'}}>
 				<Image
 					style={styles.image}
-          			source={require('../../images/shoe1.png')}
+          			source={require('../../images/shoe2.png')}
         		/>
 				<Form style={styles.form}
 					ref="form"

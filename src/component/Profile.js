@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Image, View, Text, TextInput, StyleSheet} from 'react-native';
+import {ScrollView, Image, View, Text, TextInput, StyleSheet} from 'react-native';
 import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import PhotoAction from '../actions/PhotoAction';
@@ -22,7 +22,7 @@ class Profile extends Component{
     console.log(this.props.auth)
     console.log(this.props.auth.userInfo)
     return(
-      <View>
+      <ScrollView>
         <View style={styles.header}>
           <Image 
             style={styles.image}           
@@ -77,7 +77,7 @@ class Profile extends Component{
             style={styles.icon2}>
           </Ionicons>
         </View>
-      </View>
+      </ScrollView>
     )
   }
 }
