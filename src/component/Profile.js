@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Image, View, Text, TextInput, StyleSheet} from 'react-native'
-import { connect } from 'react-redux'
+import {Image, View, Text, TextInput, StyleSheet} from 'react-native';
+import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import PhotoAction from '../actions/PhotoAction';
 
 class Profile extends Component{
   render(){
@@ -57,9 +58,18 @@ class Profile extends Component{
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    auth: state.auth
+    auth: state.auth,
+    photo: state.photo
   };
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    uploadPhoto: PhotoAction
+  }, dispatch)
+}
+
+export default connect(mapStateToProps)(Profile)
 
 const styles = StyleSheet.create({
   profile:{
@@ -93,7 +103,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default connect(mapStateToProps)(Profile)
+
 
 
 
