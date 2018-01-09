@@ -10,7 +10,7 @@ import reduxPromise from 'redux-promise'
 // import AppRouter from './router'
 import { connect } from 'react-redux'
 import Lottie from './src/component/lottie'
-import LottieSuccess from './src/component/Checkmark'
+// import LottieSuccess from './src/component/Checkmark'
 
 
 
