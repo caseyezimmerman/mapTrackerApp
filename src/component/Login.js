@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, CardSection, ScrollView, Text, TextInput, View, Button, StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { Keyboard, CardSection, ScrollView, Text, Image, TextInput, View, Button, StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
 import LoginAction from '../actions/LoginAction';
 import t from 'tcomb-form-native'
 import _ from 'lodash'
@@ -76,6 +76,10 @@ class Login extends Component {
 		}
 		return (
 			<ScrollView style={{ padding: 20, backgroundColor: '#1d4a5f' }}>
+				<Image
+					style={styles.image}
+          			source={require('../../images/rabbit.png')}
+        		/>
 				<Text style={styles.login}>{this.state.route}</Text>
 				<Form style={styles.form}
 					ref="form"
