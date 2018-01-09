@@ -12,6 +12,7 @@ import {
   Text,
   Dimensions,
   StatusBarIOS,
+  Image,
   Button
 } from 'react-native'
 import MapView from 'react-native-maps'
@@ -218,7 +219,7 @@ class MapTracker extends Component {
           }]}
           />
         
-        <View style={styles.navBar}><Text style={styles.navBarText}>Run Rabbit Run</Text></View>
+        <View style={styles.navBar}><Image style={styles.image} source={require('../../images/shoe3.png')} /></View>
         <View style={styles.bottomBar}>
           <View style={styles.bottomBarGroup}>
     
@@ -280,8 +281,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   navBar: {
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    height: 64,
+    backgroundColor: '#337ab2',
+    height: 100,
     width: width,
     position: 'absolute',
     top: 0,
@@ -305,7 +306,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height: 100,
     bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.7)',
+    backgroundColor: '#337ab2',
     width: width,
     padding: 20,
     flexWrap: 'wrap',
@@ -338,7 +339,12 @@ const styles = StyleSheet.create({
       position: 'relative',
       bottom:-27,
       left: -10
+  },
+  image: {
+    top:-10,
+    left: 116
   }
+
 })
 
 // <Text style={styles.miniCounter}>{this.state.miliseconds}</Text>

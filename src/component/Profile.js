@@ -42,6 +42,13 @@ class Profile extends Component{
             <Text>  </Text> 
           <Text style={styles.profile2}>Email: {email}</Text>
           </Ionicons>
+          <Ionicons
+            name={'ios-phone-portrait'}
+            size={35}
+            style={styles.icon}> 
+            <Text>  </Text> 
+          <Text style={styles.profile2}>Phone: 404-867-5309{email}</Text>
+          </Ionicons>
         </View>
       </View>
     )
@@ -65,7 +72,7 @@ const styles = StyleSheet.create({
     marginLeft:20
   },
   container:{
-    backgroundColor:'lightgrey',
+    backgroundColor:'#337ab2',
      height:'100%',
      width:'100%'
   
@@ -78,7 +85,8 @@ const styles = StyleSheet.create({
   },
   icon:{
     color:'#949494',
-    marginTop:20
+    marginTop:20,
+    left:10
   },
   image:{
     marginLeft:90
