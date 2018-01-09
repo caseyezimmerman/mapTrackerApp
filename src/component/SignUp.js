@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     backgroundColor:'#71afd6',
     marginLeft: 35,
-    marginTop:30
+    marginTop:10
   },
   signup:{
   	fontSize:20,

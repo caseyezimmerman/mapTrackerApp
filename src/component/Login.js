@@ -9,23 +9,31 @@ import { TabNavigator } from 'react-navigation'
 
 const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
-stylesheet.textbox.normal.borderWidth = 0;
-stylesheet.textbox.error.borderWidth = 0;
-stylesheet.textbox.normal.marginBottom = 0;
-stylesheet.textbox.error.marginBottom = 0;
-stylesheet.textboxView.normal.borderWidth = 0;
-stylesheet.textboxView.error.borderWidth = 0;
-stylesheet.textboxView.normal.borderRadius = 0;
-stylesheet.textboxView.error.borderRadius = 0;
-stylesheet.textboxView.normal.borderBottomWidth = 1;
-stylesheet.textboxView.error.borderBottomWidth = 1;
+// stylesheet.textbox.normal.borderWidth = 0;
+// stylesheet.textbox.error.borderWidth = 0;
+// stylesheet.textbox.normal.marginBottom = 0;
+// stylesheet.textbox.error.marginBottom = 0;
+// stylesheet.textboxView.normal.borderWidth = 0;
+// stylesheet.textboxView.error.borderWidth = 0;
+// stylesheet.textboxView.normal.borderRadius = 0;
+// stylesheet.textboxView.error.borderRadius = 0;
+// stylesheet.textboxView.normal.borderBottomWidth = 1;
+// stylesheet.textboxView.error.borderBottomWidth = 1;
+// stylesheet.textbox.normal.marginBottom = 5;
+// stylesheet.textbox.error.marginBottom = 5;
+// stylesheet.textbox.normal.fontSize = 20
+// stylesheet.textboxView.normal.marginBottom = 30
+// stylesheet.textboxView.error.marginBottom = 30
+// stylesheet.textbox.normal.color = 'white'
+// stylesheet.textbox.normal.placeholderTextColor
+stylesheet.textbox.normal.width = '80%'
+stylesheet.textbox.normal.textAlign = 'center'
+stylesheet.textbox.normal.marginLeft = 35
+stylesheet.textbox.normal.borderRadius = 30
+stylesheet.textbox.normal.height = 45
 stylesheet.textbox.normal.marginBottom = 5;
-stylesheet.textbox.error.marginBottom = 5;
-stylesheet.textbox.normal.fontSize = 20
-stylesheet.textboxView.normal.marginBottom = 30
-stylesheet.textboxView.error.marginBottom = 30
-stylesheet.textbox.normal.color = 'white'
-stylesheet.textbox.normal.placeholderTextColor
+stylesheet.textbox.normal.backgroundColor = 'white'
+stylesheet.textbox.normal.borderColor = 'transparent'
 
 // tcomb
 var Form = t.form.Form
@@ -77,28 +85,23 @@ class Login extends Component {
 			console.log(userMsg)
 		}
 		return (
-			<ScrollView style={{ padding: 20, backgroundColor: '#1d4a5f' }}>
+			<ScrollView style={{backgroundColor:'#337ab2'}}>
 				<Image
 					style={styles.image}
-          			source={require('../../images/rabbit2.png')}
+          			source={require('../../images/shoe1.png')}
         		/>
-				<Text style={styles.login}>{this.state.route}</Text>
 				<Form style={styles.form}
 					ref="form"
 					type={LoginForm}
 					options={options}
 				/>
 				<Text style={styles.error}>{userMsg}</Text>
-				<View style={{ margin: 7 }} />
-				<TouchableOpacity>
-					<Text
+				<TouchableOpacity
 						style={styles.button} 
 						onPress={(e) =>
 							this.userLogin(e, this.props.navigation)}
-							title={this.state.route}
 					>
-						Login
-					</Text>
+						<Text style={styles.signup}>Login</Text>
 				</TouchableOpacity>
 				<Text
 					style={styles.text} 
@@ -148,31 +151,41 @@ const styles = StyleSheet.create({
 
 	},
 	input: {
-		marginBottom: 30,
-		borderWidth: 2,
-		borderColor: 'transparent',
-		width: '60%',
-		marginLeft: '5%',
-		backgroundColor: '#0e2d3f',
-		height: 50,
-		color: 'white'
+		borderWidth:2,
+	    borderColor: 'transparent',
+	    width:'60%',
+	    marginLeft:'5%',
+	    backgroundColor:'#0e2d3f',
+	    height:50,
+	    color:'black'
 	},
 	button: {
-		fontSize: 25,
-		backgroundColor: '#50dcc1',
-		height: 50,
-		textAlign: 'center',
-		color: 'white',
-		fontWeight: 'bold',
-		fontFamily: 'Bradley Hand'
+	    height:45,
+	    width:'80%',
+	    borderWidth:6,
+	    borderColor: 'transparent',
+	    borderRadius: 30,
+	    backgroundColor:'#71afd6',
+	    marginLeft: 35,
+	    marginTop:10
 	},
-	placeholder: {
-		color: 'white'
+	signup:{
+		fontSize:20,
+   		textAlign:'center',
+	    color:'slategrey',
+	    backgroundColor: 'transparent',
 	},
-	form: {
-		marginBottom: 20,
+	form:{
+	  	marginLeft:50,
+	    marginBottom:100,
+	    width:'80%'
+	},
+	image:{
+	  	marginTop: 40,
+	  	marginLeft:70,
+	  	marginBottom: 40
 	},
 	error:{
-		color:'red'
+	  	color:'red'
 	}
 });
