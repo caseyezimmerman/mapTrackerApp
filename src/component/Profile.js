@@ -5,7 +5,20 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 class Profile extends Component{
   render(){
+    var name = ""
+    if(this.props.auth.userInfo != undefined){
+      name = this.props.auth.userInfo.name
+    }else{
+      name = this.props.auth.name
+    }
+    var email = ""
+    if(this.props.auth.userInfo != undefined){
+      email = this.props.auth.userInfo.email
+    }else{
+      email = this.props.auth.email
+    }
     console.log(this.props.auth)
+    console.log(this.props.auth.userInfo)
     return(
       <View>
         <View>
@@ -20,14 +33,14 @@ class Profile extends Component{
             size={35}
             style={styles.icon}>
             <Text>  </Text>
-            <Text style={styles.profile}>Name: {this.props.auth.name}</Text>
+            <Text style={styles.profile}>Name: {name}</Text>
           </Ionicons>
           <Ionicons
             name={'ios-mail'}
             size={35}
             style={styles.icon}> 
             <Text>  </Text> 
-          <Text style={styles.profile2}>Email: {this.props.auth.email}</Text>
+          <Text style={styles.profile2}>Email: {email}</Text>
           </Ionicons>
         </View>
       </View>
