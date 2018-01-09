@@ -16,7 +16,6 @@ function MapAction(currentLocation,distance,navigator){
 	var geoPromise = Geocoder.getFromLocation(currentLocation).then(
 	    json => {
 	      var geolocation = json.results[0].geometry.location;
-	      // console.log(location.lat + ", " + location.lng);
 	      console.log(geolocation.lat)
 	      console.log(geolocation.lng)
 	      

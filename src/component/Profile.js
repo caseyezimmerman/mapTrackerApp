@@ -19,8 +19,6 @@ class Profile extends Component{
     }else{
       email = this.props.auth.email
     }
-    console.log(this.props.auth)
-    console.log(this.props.auth.userInfo)
     return(
       <ScrollView>
         <View style={styles.header}>
@@ -103,9 +101,7 @@ const styles = StyleSheet.create({
     bottom: 30
   },
   profile:{
-    // flex:1,
     textAlign:'center',
-    // justifyContent:'space-between',
     fontSize:20,
     color:'black',
     marginTop:200,
@@ -115,7 +111,6 @@ const styles = StyleSheet.create({
     backgroundColor:'white',
      height:'100%',
      width:'100%'
-  
   },
   profile2:{
     textAlign:'center',
