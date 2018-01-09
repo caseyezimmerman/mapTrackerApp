@@ -80,7 +80,7 @@ class Login extends Component {
 			<ScrollView style={{ padding: 20, backgroundColor: '#1d4a5f' }}>
 				<Image
 					style={styles.image}
-          			source={require('../../images/rabbit.png')}
+          			source={require('../../images/rabbit2.png')}
         		/>
 				<Text style={styles.login}>{this.state.route}</Text>
 				<Form style={styles.form}
@@ -88,7 +88,7 @@ class Login extends Component {
 					type={LoginForm}
 					options={options}
 				/>
-				<Text>{userMsg}</Text>
+				<Text style={styles.error}>{userMsg}</Text>
 				<View style={{ margin: 7 }} />
 				<TouchableOpacity>
 					<Text
@@ -171,5 +171,8 @@ const styles = StyleSheet.create({
 	},
 	form: {
 		marginBottom: 20,
+	},
+	error:{
+		color:'red'
 	}
 });

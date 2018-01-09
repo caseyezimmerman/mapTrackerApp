@@ -9,24 +9,32 @@ import { TabNavigator } from 'react-navigation'
 
 const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
-stylesheet.textbox.normal.borderWidth = 0;
-stylesheet.textbox.error.borderWidth = 0;
-stylesheet.textbox.normal.marginBottom = 0;
-stylesheet.textbox.error.marginBottom = 0;
-stylesheet.textboxView.normal.borderWidth = 0;
-stylesheet.textboxView.error.borderWidth = 0;
-stylesheet.textboxView.normal.borderRadius = 0;
-stylesheet.textboxView.error.borderRadius = 0;
-stylesheet.textboxView.normal.borderBottomWidth = 1;
-stylesheet.textboxView.error.borderBottomWidth = 1;
-stylesheet.textboxView.normal.borderBottomColor= 'black'
-stylesheet.textbox.normal.marginBottom = 5;
-stylesheet.textbox.error.marginBottom = 5;
-stylesheet.textbox.normal.fontSize = 20
-stylesheet.textboxView.normal.marginBottom = 30
-stylesheet.textboxView.error.marginBottom = 30
-stylesheet.textbox.normal.color = 'black'
-stylesheet.textbox.normal.placeholderTextColor
+// stylesheet.textbox.normal.borderWidth = 0;
+// stylesheet.textbox.error.borderWidth = 0;
+// stylesheet.textbox.normal.marginBottom = 0;
+// stylesheet.textbox.error.marginBottom = 0;
+// stylesheet.textboxView.normal.borderWidth = 0;
+// stylesheet.textboxView.error.borderWidth = 0;
+// stylesheet.textboxView.normal.borderRadius = 0;
+// stylesheet.textboxView.error.borderRadius = 0;
+// stylesheet.textboxView.normal.borderBottomWidth = 1;
+// stylesheet.textboxView.error.borderBottomWidth = 1;
+// stylesheet.textboxView.normal.borderBottomColor= 'black'
+// stylesheet.textbox.normal.marginBottom = 5;
+// stylesheet.textbox.error.marginBottom = 5;
+// stylesheet.textbox.normal.fontSize = 20
+// stylesheet.textboxView.normal.marginBottom = 30
+// stylesheet.textboxView.error.marginBottom = 30
+// stylesheet.textbox.normal.color = 'black'
+// stylesheet.textbox.normal.placeholderTextColor
+stylesheet.textbox.normal.width = '80%'
+stylesheet.textbox.normal.textAlign = 'center'
+stylesheet.textbox.normal.marginLeft = 35
+stylesheet.textbox.normal.borderRadius = 30
+stylesheet.textbox.normal.height = 45
+stylesheet.textbox.normal.marginBottom = 10;
+stylesheet.textbox.normal.backgroundColor = 'white'
+stylesheet.textbox.normal.borderColor = 'transparent'
 
 // tcomb
 var Form = t.form.Form 
@@ -80,7 +88,7 @@ class SignUp extends Component {
 			var userMsg = this.props.navigation.state.params.msg
 		}
 		return (
-			<ScrollView>
+			<ScrollView style={{backgroundColor:'#337ab2'}}>
 				      
 				<Image
 					style={styles.image}
@@ -93,7 +101,7 @@ class SignUp extends Component {
 						options={options}
 					/>
 				                        
-					<Text>{userMsg}</Text>
+					<Text style={styles.error}>{userMsg}</Text>
 					<Text 
 						style={styles.button} onPress={(e) => 
 							this.userSignUp(e, this.props.navigation)} 							
@@ -161,24 +169,35 @@ const styles = StyleSheet.create({
     color:'black'
   },
   button:{
-    fontSize:25,
+    fontSize:15,
     // backgroundColor:'#50dcc1',
     // height:50,
     textAlign:'center',
     color:'black',
-    fontWeight:'bold',
+    // fontWeight:'bold',
     // fontFamily: 'Bradley Hand'
+    height:45,
+    width:'80%',
+    borderWidth:2,
+    borderColor: 'transparent',
+    borderRadius: 30,
+    backgroundColor:'#71afd6'
   },
   placeholder:{
     color:'white'
   },
   form:{
+  	marginLeft:50,
     marginBottom:20,
     width:'80%'
   },
   image:{
+  	marginTop: 30,
   	marginLeft:70,
   	marginBottom: 20
+  },
+  error:{
+  	color:'red'
   }
 });
 
