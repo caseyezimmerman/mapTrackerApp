@@ -49,7 +49,7 @@ class Profile extends Component{
             size={35}
             style={styles.icon}> 
             <Text>  </Text> 
-          <Text style={styles.profile2}>Phone: 404-867-5309{email}</Text>
+          <Text style={styles.profile2}>Phone: 404-867-5309</Text>
           </Ionicons>
           <Ionicons
             name={'ios-notifications'}
