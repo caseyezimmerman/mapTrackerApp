@@ -8,24 +8,6 @@ import { bindActionCreators } from 'redux'
 import { TabNavigator } from 'react-navigation'
 
 const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
-
-// stylesheet.textbox.normal.borderWidth = 0;
-// stylesheet.textbox.error.borderWidth = 0;
-// stylesheet.textbox.normal.marginBottom = 0;
-// stylesheet.textbox.error.marginBottom = 0;
-// stylesheet.textboxView.normal.borderWidth = 0;
-// stylesheet.textboxView.error.borderWidth = 0;
-// stylesheet.textboxView.normal.borderRadius = 0;
-// stylesheet.textboxView.error.borderRadius = 0;
-// stylesheet.textboxView.normal.borderBottomWidth = 1;
-// stylesheet.textboxView.error.borderBottomWidth = 1;
-// stylesheet.textbox.normal.marginBottom = 5;
-// stylesheet.textbox.error.marginBottom = 5;
-// stylesheet.textbox.normal.fontSize = 20
-// stylesheet.textboxView.normal.marginBottom = 30
-// stylesheet.textboxView.error.marginBottom = 30
-// stylesheet.textbox.normal.color = 'white'
-// stylesheet.textbox.normal.placeholderTextColor
 stylesheet.textbox.normal.width = '80%'
 stylesheet.textbox.normal.textAlign = 'center'
 stylesheet.textbox.normal.marginLeft = 35
@@ -37,10 +19,6 @@ stylesheet.textbox.normal.borderColor = 'transparent'
 
 // tcomb
 var Form = t.form.Form
-// var options = {
-// 	auto: 'placeholders',
-// 	stylesheet: stylesheet
-// };
 var options = {
   auto: 'placeholders',
   stylesheet: stylesheet,
@@ -79,7 +57,6 @@ class Login extends Component {
 	onPress(e) { e.preventDefault() }
 
 	render() {
-
 		if (this.props.navigation.state.params !== undefined) {
 			var userMsg = this.props.navigation.state.params.msg
 			console.log(userMsg)

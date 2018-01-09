@@ -9,24 +9,6 @@ import { TabNavigator } from 'react-navigation'
 
 const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
-// stylesheet.textbox.normal.borderWidth = 0;
-// stylesheet.textbox.error.borderWidth = 0;
-// stylesheet.textbox.normal.marginBottom = 0;
-// stylesheet.textbox.error.marginBottom = 0;
-// stylesheet.textboxView.normal.borderWidth = 0;
-// stylesheet.textboxView.error.borderWidth = 0;
-// stylesheet.textboxView.normal.borderRadius = 0;
-// stylesheet.textboxView.error.borderRadius = 0;
-// stylesheet.textboxView.normal.borderBottomWidth = 1;
-// stylesheet.textboxView.error.borderBottomWidth = 1;
-// stylesheet.textboxView.normal.borderBottomColor= 'black'
-// stylesheet.textbox.normal.marginBottom = 5;
-// stylesheet.textbox.error.marginBottom = 5;
-// stylesheet.textbox.normal.fontSize = 20
-// stylesheet.textboxView.normal.marginBottom = 30
-// stylesheet.textboxView.error.marginBottom = 30
-// stylesheet.textbox.normal.color = 'black'
-// stylesheet.textbox.normal.placeholderTextColor
 stylesheet.textbox.normal.width = '80%'
 stylesheet.textbox.normal.textAlign = 'center'
 stylesheet.textbox.normal.marginLeft = 35
@@ -38,12 +20,6 @@ stylesheet.textbox.normal.borderColor = 'transparent'
 
 // tcomb
 var Form = t.form.Form 
-// var options = {
-// 	auto: 'placeholders',
-// 	stylesheet: stylesheet,
-// 	password: true,
-// 	secureTextEntry: true
-// };
 
 var options = {
   auto: 'placeholders',
@@ -61,7 +37,7 @@ var SignUpForm = t.struct({
   email: t.String,
   password: t.String,
 });
- 
+
 class SignUp extends Component {
 	constructor (props) {
 		super(props);
@@ -88,19 +64,16 @@ class SignUp extends Component {
 			var userMsg = this.props.navigation.state.params.msg
 		}
 		return (
-			<ScrollView style={{backgroundColor:'#337ab2'}}>
-				      
+			<ScrollView style={{backgroundColor:'#337ab2'}}>     
 				<Image
 					style={styles.image}
           			source={require('../../images/shoe2.png')}
         		/>
-				
 					<Form style={styles.form} 
 						ref="form"
 						type={SignUpForm}
 						options={options}
-					/>
-				                        
+					/>                  
 					<Text style={styles.error}>{userMsg}</Text>
 					<TouchableOpacity 
 						style={styles.button} onPress={(e) => 
@@ -108,14 +81,12 @@ class SignUp extends Component {
 					>
 						<Text style={styles.signup}>Sign Up</Text>
 					</TouchableOpacity>
-				
 				<Text 
 					style={styles.text} onPress={() => 
 						this.props.navigation.navigate('Login')}
 				>
 					Already have an account? Login
 				</Text>
-				
 			</ScrollView>
 		);
 	}
@@ -134,9 +105,7 @@ function mapDispatchToProps(dispatch){
 	},dispatch)
 }
 
- 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
-
 
 const styles = StyleSheet.create({
   container: {
@@ -146,8 +115,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 },
   login: {
-    // marginTop:20,
-    // marginBottom:30,
     fontSize: 40,
     textAlign:'center',
     color:'white',
@@ -159,7 +126,6 @@ const styles = StyleSheet.create({
 
 },
   input:{
-    // marginBottom:10,
     borderWidth:2,
     borderColor: 'transparent',
     width:'60%',
@@ -169,11 +135,6 @@ const styles = StyleSheet.create({
     color:'black'
   },
   button:{
-    // backgroundColor:'#50dcc1',
-    // height:50,
-    
-    // fontWeight:'bold',
-    // fontFamily: 'Bradley Hand'
     height:45,
     width:'80%',
     borderWidth:6,
@@ -209,18 +170,4 @@ const styles = StyleSheet.create({
   	color:'red'
   }
 });
-
-
-
-// <Image
-//     style={{
-//       // backgroundColor: '#ccc',
-//       flex: 1,
-//       position: 'absolute',
-//       width: '100%',
-//       height: '150%',
-//       justifyContent: 'center',
-//     }}
-//     source={require('../../images/bg.jpg')}
-//   />
 

@@ -21,7 +21,7 @@ const NavBarConfig = {
   SignUp: { 
     screen: SignUp,
     navigationOptions:{
-      // tabBarVisible: false,
+      tabBarVisible: false,
       tabBarLabel: 'SignUp',
       tabBarIcon: ({ focused }) => (
         <Ionicons
@@ -35,7 +35,7 @@ const NavBarConfig = {
   Login:{
     screen: Login,
     navigationOptions: {
-      // tabBarVisible: false,
+      tabBarVisible: false,
       tabBarLabel: 'Login',
       tabBarIcon: ({ focused }) => (
         <Ionicons
@@ -87,16 +87,13 @@ const NavBarConfig = {
   },
 }
 
-
-
 // adjust this for styles
 const styleNavConfig = {
   animationEnabled: true,
   tabBarOptions: {
-    activeTintColor: '#e91e63',
+    activeTintColor: 'black',
   }
 }
-
 
 const AppWithNavigation = TabNavigator(NavBarConfig, styleNavConfig)
 

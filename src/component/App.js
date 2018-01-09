@@ -33,29 +33,6 @@ export default class App extends Component {
     this.startWatch = this.startWatch.bind(this)
   }
 
-  // componentDidMount() {
-  //   // StatusBarIOS.setStyle('light-content')
-  //   navigator.geolocation.getCurrentPosition(
-  //     (position) => {
-  //       console.log(position)
-  //       const { routeCoordinates } = this.state
-  //       // const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
-  //       const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
-  //       this.setState({
-  //         // routeCoordinates: routeCoordinates.concat(positionLatLngs),
-  //         // distanceTravelled: distanceTravelled + this.calcDistance(newLatLngs),
-  //         // prevLatLng: newLatLngs,
-  //         currentLatLng: position.coords
-  //       })
-  //     },
-  //     (error) => alert(error.message),
-  //     // {enableHighAccuracy: true, timeout: 1000, maximumAge: 10000000000000}
-  //   )
-  //   // this.watchID = navigator.geolocation.watchPosition((position) => {
-
-  //   // });
-  // }
-
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);
   }
@@ -72,7 +49,6 @@ export default class App extends Component {
       {enableHighAccuracy: true, timeout: 100, maximumAge: 0}
     )
     this.watchID = navigator.geolocation.watchPosition((position) => {
-      console.log(position)
       const { routeCoordinates, distanceTravelled } = this.state
       const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
       const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
@@ -87,7 +63,6 @@ export default class App extends Component {
 
 
   render() {
-    console.log(this.state.currentLatLng)
     return (
       <View style={styles.container}>
         <MapView
