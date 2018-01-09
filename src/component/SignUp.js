@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     // fontFamily: 'Bradley Hand'
     height:45,
     width:'80%',
-    borderWidth:2,
+    borderWidth:6,
     borderColor: 'transparent',
     borderRadius: 30,
     backgroundColor:'#71afd6',
