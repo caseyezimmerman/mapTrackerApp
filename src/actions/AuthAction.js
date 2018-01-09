@@ -12,6 +12,7 @@ function SignUpAction(name,email,password,navigator){
 	})
 	// pass desired route as string
 	.then((data)=>{
+		console.log(data.data.name)
 		const theData = data.data;
 		if (theData.msg === "emailTaken") {
 			navigator.navigate('SignUp', 

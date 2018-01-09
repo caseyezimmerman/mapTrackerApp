@@ -32,7 +32,7 @@ stylesheet.textbox.normal.textAlign = 'center'
 stylesheet.textbox.normal.marginLeft = 35
 stylesheet.textbox.normal.borderRadius = 30
 stylesheet.textbox.normal.height = 45
-stylesheet.textbox.normal.marginBottom = 10;
+stylesheet.textbox.normal.marginBottom = 5;
 stylesheet.textbox.normal.backgroundColor = 'white'
 stylesheet.textbox.normal.borderColor = 'transparent'
 
@@ -92,7 +92,7 @@ class SignUp extends Component {
 				      
 				<Image
 					style={styles.image}
-          			source={require('../../images/shoe.png')}
+          			source={require('../../images/shoe1.png')}
         		/>
 				
 					<Form style={styles.form} 
@@ -102,12 +102,12 @@ class SignUp extends Component {
 					/>
 				                        
 					<Text style={styles.error}>{userMsg}</Text>
-					<Text 
+					<TouchableOpacity 
 						style={styles.button} onPress={(e) => 
 							this.userSignUp(e, this.props.navigation)} 							
 					>
-						Sign Up
-					</Text>
+						<Text style={styles.signup}>Sign Up</Text>
+					</TouchableOpacity>
 				
 				<Text 
 					style={styles.text} onPress={() => 
@@ -169,11 +169,9 @@ const styles = StyleSheet.create({
     color:'black'
   },
   button:{
-    fontSize:15,
     // backgroundColor:'#50dcc1',
     // height:50,
-    textAlign:'center',
-    color:'black',
+    
     // fontWeight:'bold',
     // fontFamily: 'Bradley Hand'
     height:45,
@@ -181,20 +179,27 @@ const styles = StyleSheet.create({
     borderWidth:2,
     borderColor: 'transparent',
     borderRadius: 30,
-    backgroundColor:'#71afd6'
+    backgroundColor:'#71afd6',
+    marginLeft: 35
+  },
+  signup:{
+  	fontSize:20,
+  	textAlign:'center',
+    color:'slategrey'
+
   },
   placeholder:{
     color:'white'
   },
   form:{
   	marginLeft:50,
-    marginBottom:20,
+    marginBottom:30,
     width:'80%'
   },
   image:{
-  	marginTop: 30,
+  	marginTop: 40,
   	marginLeft:70,
-  	marginBottom: 20
+  	marginBottom: 40
   },
   error:{
   	color:'red'
