@@ -3,6 +3,7 @@ import {Image, View, Text, TextInput, StyleSheet} from 'react-native';
 import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import PhotoAction from '../actions/PhotoAction';
+import ToggleSwitch from 'toggle-switch-react-native'
 
 class Profile extends Component{
   render(){
@@ -22,7 +23,7 @@ class Profile extends Component{
     console.log(this.props.auth.userInfo)
     return(
       <View>
-        <View>
+        <View style={styles.header}>
           <Image 
             style={styles.image}           
             source={require('../../images/account.png')}
@@ -50,6 +51,31 @@ class Profile extends Component{
             <Text>  </Text> 
           <Text style={styles.profile2}>Phone: 404-867-5309{email}</Text>
           </Ionicons>
+          <Ionicons
+            name={'ios-notifications'}
+            size={35}
+            style={styles.icon}>
+            <Text>  </Text>
+          <Text style={styles.profile2}>Notifications:</Text>
+          </Ionicons>
+          <View style={styles.toggle}>
+            <ToggleSwitch
+              isOn={false}
+              onColor='#478543'
+              offColor='#9a2d2d'
+              label=''
+              labelStyle={{color: 'black', fontWeight: '900'}}
+              size='medium'
+              onToggle={ (isOn) => console.log('changed to : ', isOn) }
+            />
+          </View>
+          <Text style={styles.profile2}>Local Weather</Text>
+          <Text>  </Text>
+          <Ionicons
+            name={'ios-partly-sunny'}
+            size={100}
+            style={styles.icon2}>
+          </Ionicons>
         </View>
       </View>
     )
@@ -72,6 +98,10 @@ function mapDispatchToProps(dispatch) {
 export default connect(mapStateToProps)(Profile)
 
 const styles = StyleSheet.create({
+  toggle: {
+    left:200,
+    bottom: 30
+  },
   profile:{
     // flex:1,
     textAlign:'center',
@@ -82,7 +112,7 @@ const styles = StyleSheet.create({
     marginLeft:20
   },
   container:{
-    backgroundColor:'#337ab2',
+    backgroundColor:'white',
      height:'100%',
      width:'100%'
   
@@ -94,13 +124,25 @@ const styles = StyleSheet.create({
     marginLeft:20
   },
   icon:{
-    color:'#949494',
+    color:'black',
     marginTop:20,
     left:10
   },
+  header: {
+    backgroundColor: '#a5a5a5',
+  },
   image:{
-    marginLeft:90
-  }
+    
+    marginLeft:90,
+  },
+  on:{
+    left:40
+  },
+  icon2:{
+    color:'black',
+    marginTop:20,
+    left:160
+  },
 })
 
 
