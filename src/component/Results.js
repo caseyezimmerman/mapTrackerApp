@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { ScrollView, Image, Text, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
+import FadeImage from 'react-native-fade-image'
 
 
 
@@ -19,12 +20,19 @@ class Results extends Component{
 
   	var distance = (this.props.results.data.distance).toFixed(2)
   	console.log(distance)
-  }
+  	}
+  	var calories = ((this.props.results.data.distance)*100).toFixed(2)
     return (
-    <View>
-      <Text style={styles.time}>{this.props.results.data.minutes}:{this.props.results.data.seconds}</Text>
-      <Text style={styles.time}>{distance} miles</Text>
-    </View>
+    <ScrollView style={{backgroundColor: 'lightgrey'}}>
+    	<FadeImage
+    		style={styles.image}
+  			source={require('../../images/success.png')}
+  			duration={4000}
+		/> 
+    	<Text style={styles.time}>{this.props.results.data.minutes}:{this.props.results.data.seconds}</Text>
+    	<Text style={styles.time}>{distance} miles</Text>
+    	<Text style={styles.time}>{calories} calories</Text>
+    </ScrollView>
     )
   }
 }
@@ -40,7 +48,11 @@ const styles = StyleSheet.create({
 		// flex:1,
 		textAlign:'center',
 		fontSize:40,
-		marginTop:200
+		marginTop:50
+	},
+	image:{
+		marginLeft:85,
+
 	}
 })
 

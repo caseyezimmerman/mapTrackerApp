@@ -155,7 +155,8 @@ const styles = StyleSheet.create({
 },
   text:{
     marginTop:20,
-    color: 'white'
+    color: 'white',
+    marginLeft:5
 
 },
   input:{
