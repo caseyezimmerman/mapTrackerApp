@@ -71,8 +71,10 @@ class Login extends Component {
 	onPress(e) { e.preventDefault() }
 
 	render() {
+
 		if (this.props.navigation.state.params !== undefined) {
 			var userMsg = this.props.navigation.state.params.msg
+			console.log(userMsg)
 		}
 		return (
 			<ScrollView style={{ padding: 20, backgroundColor: '#1d4a5f' }}>
@@ -82,6 +84,7 @@ class Login extends Component {
 					type={LoginForm}
 					options={options}
 				/>
+				<Text>{userMsg}</Text>
 				<View style={{ margin: 7 }} />
 				<TouchableOpacity>
 					<Text

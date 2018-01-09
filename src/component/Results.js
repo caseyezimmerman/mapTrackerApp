@@ -23,7 +23,7 @@ class Results extends Component{
     return (
     <View>
       <Text style={styles.time}>{this.props.results.data.minutes}:{this.props.results.data.seconds}</Text>
-      <Text style={styles.time}>{distance}</Text>
+      <Text style={styles.time}>{distance} miles</Text>
     </View>
     )
   }

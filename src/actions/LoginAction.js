@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function LoginAction(email,password,error,navigator) {
+function LoginAction(email,password,navigator) {
     var axiosPromise = axios({
         method: 'POST',
         url: 'http://localhost:3000/login',

@@ -93,7 +93,7 @@ class SignUp extends Component {
 						options={options}
 					/>
 				                        
-				
+					<Text>{userMsg}</Text>
 					<Text 
 						style={styles.button} onPress={(e) => 
 							this.userSignUp(e, this.props.navigation)} 							

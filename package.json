@@ -9,7 +9,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "haversine": "^1.1.0",
-    "lottie-react-native": "^2.2.7",
+    "lottie-react-native": "^2.3.2",
     "minutes-seconds-milliseconds": "^1.0.3",
     "react": "16.0.0",
     "react-native": "0.51.0",

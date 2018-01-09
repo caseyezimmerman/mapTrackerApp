@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function SignUpAction(name,email,password,error,navigator){
+function SignUpAction(name,email,password,navigator){
 	var axiosPromise = axios({
 	method: 'POST',
 	url: 'http://localhost:3000/signup',
