@@ -181,15 +181,16 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     backgroundColor:'#71afd6',
     marginLeft: 35,
-    marginTop:10
+    marginTop:10,
+    shadowOffset:{  width: 3,  height: 3,  },
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
   },
   signup:{
   	fontSize:20,
   	textAlign:'center',
     color:'slategrey',
     backgroundColor: 'transparent',
-
-
   },
   placeholder:{
     color:'white'
