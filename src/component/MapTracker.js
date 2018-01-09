@@ -13,7 +13,8 @@ import {
   Dimensions,
   StatusBarIOS,
   Image,
-  Button
+  Button,
+  TouchableOpacity
 } from 'react-native'
 import MapView from 'react-native-maps'
 import { connect } from 'react-redux'
@@ -223,35 +224,35 @@ class MapTracker extends Component {
         <View style={styles.bottomBar}>
           <View style={styles.bottomBarGroup}>
     
-            <Text onPress = {this.startWatch}>START</Text>
+            
             <Text style={styles.bottomBarContent}></Text>
           </View>
-          <Text style={styles.counter}>{this.state.minutes}:</Text>
-          <Text style={styles.counter}>{this.state.counter}</Text>
+          <Text style={styles.counter}>{this.state.minutes}:{this.state.counter}</Text>
+          
                 
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <Button onPress={this.start}
+                <TouchableOpacity
+                        style={styles.button2}
+                        onPress={this.start}
                         disabled={this.state.stopDisabled}
                         onPress={this.onButtonStart}
                         title="Start"
-                        color="#11a029"
+                        color="white"
                         accessibilityLabel="Start"
-                    />
-                    <Button
+                        
+                    ><Text style={styles.start}>Start</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                        style={styles.button}   
                         disabled={this.state.stopDisabled}
                         onPress={(e) => 
                           this.timerStop(e, this.props.navigation)}
                         title="Stop"
-                        color="#ff0000"
+                        color="white"
                         accessibilityLabel="Stop"
-                    />
-                    <Button
-                        disabled={this.state.startDisabled}
-                        onPress={this.onButtonClear}
-                        title="Clear"
-                        color="#ff0000"
-                        accessibilityLabel="Clear"
-                    />
+                        
+                    ><Text style={styles.stop}>Stop</Text>
+                </TouchableOpacity>
                 </View>
         </View>
       </View>
@@ -307,10 +308,13 @@ const styles = StyleSheet.create({
     height: 100,
     bottom: 0,
     backgroundColor: '#337ab2',
+    // backgroundColor:'#71afd6',
     width: width,
     padding: 20,
     flexWrap: 'wrap',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    // borderTopWidth:3,
+    // borderTopColor:'grey'
   },
   bottomBarGroup: {
     flex: 1
@@ -329,10 +333,13 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   counter: {
-      fontSize: 30,
-      textAlign: 'center',
-      height: 40,
-      margin: 10,
+      position:'absolute',
+      fontSize: 45,
+      // textAlign: 'center',
+      height: 60,
+      left:125,
+      bottom:18
+      // bottom:60
   },
   miniCounter: {
       fontSize:20,
@@ -343,6 +350,62 @@ const styles = StyleSheet.create({
   image: {
     top:-10,
     left: 116
+  },
+  start:{
+    // position:'absolute',
+    fontSize:22,
+    // left:-290,
+    backgroundColor:'#71afd6',
+    height:30,
+    // marginRight:100
+    // backgroundColor:'black'
+    textAlign:'center',
+    backgroundColor:'transparent',
+    color:'white',
+    marginTop:15
+
+  },
+  stop:{
+    fontSize:22,
+    // position:'absolute',
+    // left:-80,
+    backgroundColor:'transparent',
+    // height:30,
+    textAlign:'center',
+    color:'white',
+    marginTop:15
+
+  },
+  button:{
+    height:70,
+    width:70,
+    borderWidth:6,
+    borderColor: 'transparent',
+    borderRadius: 50,
+    // backgroundColor:'#71afd6',
+    // backgroundColor:'#bdd0f5',
+    backgroundColor:'#a94c4c',
+    position:'absolute',
+    left:-80,
+    bottom:-5,
+    shadowOffset:{  width: 5,  height: 5,  },
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
+  },
+  button2:{
+    height:70,
+    width:70,
+    borderWidth:6,
+    borderColor: 'transparent',
+    borderRadius: 50,
+    backgroundColor:'lightgreen',
+    position:'absolute',
+    left:-330,
+    bottom:-5,
+    // backgroundColor:'#ed8224',
+    shadowOffset:{  width: 5,  height: 5,  },
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
   }
 
 })

@@ -92,7 +92,7 @@ class SignUp extends Component {
 				      
 				<Image
 					style={styles.image}
-          			source={require('../../images/shoe1.png')}
+          			source={require('../../images/shoe2.png')}
         		/>
 				
 					<Form style={styles.form} 
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
 },
   text:{
     marginTop:20,
-    color: 'black'
+    color: 'white'
 
 },
   input:{
