@@ -20,7 +20,8 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
-    "tcomb-form-native": "^0.6.11"
+    "tcomb-form-native": "^0.6.11",
+    "toggle-switch-react-native": "^0.2.0"
   },
   "devDependencies": {
     "babel-jest": "22.0.4",
