@@ -192,6 +192,12 @@ class MapTracker extends Component {
 
   render() {
     // console.log(this.state.currentLatLng)
+    if (this.state.currentLatLng.latitude === undefined){
+      this.state.currentLatLng.latitude = 0;
+    }
+    if (this.state.currentLatLng.longitude === undefined){
+      this.state.currentLatLng.longitude = 0;
+    }
     return (
       <View style={styles.container}>
         <MapView
