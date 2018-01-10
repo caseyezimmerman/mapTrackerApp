@@ -23,6 +23,10 @@ A React Native application that tracks your run and tells you your distance ran,
 * tcomb-form-native
 * toggle-switch-react-native
 
+## Screenshots
+
+![Login Page](screenshots/login-page.png "Login Page")
+![Map Page](lscreenshots/map-page.png "Map Page")
 
 ## Authors
 
