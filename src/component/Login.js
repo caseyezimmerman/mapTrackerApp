@@ -167,5 +167,10 @@ const styles = StyleSheet.create({
 	},
 	error:{
 	  	color:'red'
+	},
+	font:{
+		fontSize:40,
+		textAlign:'center',
+		fontFamily:'Zapf Dingbats'
 	}
 });

@@ -38,7 +38,8 @@ class MapTracker extends Component {
       counter: '00',
       miliseconds: '00',
       startDisabled: true,
-      stopDisabled: false
+      stopDisabled: false,
+
     }
     this.startWatch = this.startWatch.bind(this)
     this.onButtonStart = this.onButtonStart.bind(this);
@@ -66,6 +67,29 @@ class MapTracker extends Component {
       })
     });
   }
+
+
+  // timeout(){
+  //     navigator.geolocation.getCurrentPosition(
+  //     (position) => {},
+  //     (error) => alert(error.message),
+  //     {enableHighAccuracy: true, timeout: 100, maximumAge: 0}
+  //   )
+  //   this.watchID = navigator.geolocation.watchPosition((position) => {
+  //     const { routeCoordinates, distanceTravelled } = this.state
+  //     const newLatLngs = {latitude: position.coords.latitude, longitude: position.coords.longitude }
+  //     const positionLatLngs = pick(position.coords, ['latitude', 'longitude'])
+  //     this.setState({
+  //       routeCoordinates: routeCoordinates.concat(positionLatLngs),
+  //       distanceTravelled: distanceTravelled + this.calcDistance(newLatLngs),
+  //       prevLatLng: newLatLngs,
+  //       currentLatLng: position.coords
+  //     })
+  //   });
+  // }
+  // }
+
+
     start() {
         var self = this;
         let timer = setInterval(() => {
@@ -103,6 +127,7 @@ class MapTracker extends Component {
     timerStop(e, navigator){
       e.preventDefault()
       clearInterval(this.state.timer);
+
       this.setState({startDisabled: false, stopDisabled: true});
       var timerSeconds = this.state.counter
       var timerMinutes = this.state.minutes
@@ -184,7 +209,7 @@ class MapTracker extends Component {
           <TouchableOpacity
                   style={styles.button2}
                   onPress={this.start}
-                  disabled={this.state.stopDisabled}
+                  // disabled={this.state.stopDisabled}
                   onPress={this.onButtonStart}
                   title="Start"
                   color="white"
@@ -193,7 +218,7 @@ class MapTracker extends Component {
           </TouchableOpacity>
           <TouchableOpacity
                   style={styles.button}   
-                  disabled={this.state.stopDisabled}
+                  // disabled={this.state.stopDisabled}
                   onPress={(e) => 
                     this.timerStop(e, this.props.navigation)}
                   title="Stop"

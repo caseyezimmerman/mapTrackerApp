@@ -3,8 +3,7 @@ import { ScrollView, Image, Text, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import FadeImage from 'react-native-fade-image'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-
+import ProgressCircle from 'react-native-progress-circle'
 
 class Results extends Component{
   render(){
@@ -33,13 +32,18 @@ class Results extends Component{
   	console.log(distance)
   	}
   	var calories = ((this.props.results.data.distance)*100).toFixed(2)
+  	var percent = (distance)*10
     return (
     <View>
-    	<Image
-    		style={styles.image}
-  			source={require('../../images/progress.png')}
-  			duration={4000}
-		/> 
+    	<ProgressCircle
+            percent={percent}
+            radius={80}
+            borderWidth={8}
+            color="#3399FF"
+            shadowColor="#999"
+            bgColor="#fff"
+        /> 
+        <Text style={styles.miles}>{distance} miles</Text>
 		<Ionicons
             name={'md-alarm'}
             size={45}
@@ -51,7 +55,6 @@ class Results extends Component{
             style={styles.calIcon}
         ></Ionicons>
     	<Text style={styles.time}>{minutes}:{seconds}</Text>
-    	<Text style={styles.miles}>{distance} miles</Text>
     	<Text style={styles.cal}>{calories}</Text>
     </View>
     )
