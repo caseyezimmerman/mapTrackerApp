@@ -69,6 +69,7 @@ class SignUp extends Component {
 					style={styles.image}
           			source={require('../../images/shoe2.png')}
         		/>
+        		
 					<Form style={styles.form} 
 						ref="form"
 						type={SignUpForm}

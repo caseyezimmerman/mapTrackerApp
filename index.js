@@ -8,6 +8,8 @@ import { StackNavigator } from 'react-navigation';
 import reduxPromise from 'redux-promise'
 import { connect } from 'react-redux'
 import Lottie from './src/component/lottie'
+import Checkmark from './src/component/Checkmark'
+
 
 // let store = createStore(rootReducer);
 const store = applyMiddleware(reduxPromise)(createStore)(rootReducer)
@@ -24,3 +26,4 @@ export default class mapTrackerApp extends Component {
 
 
 AppRegistry.registerComponent('mapTrackerApp', () => mapTrackerApp);
+
