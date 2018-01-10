@@ -8,19 +8,19 @@ A react native application that tracks your run and tells you your distance ran,
 * [Express](https://expressjs.com/) - The back-end framework used.
 * [Google Maps API](https://developers.google.com/maps/) - Used for Geolocation.
 
-## Node Modules Dependencies
+## Node Module Dependencies
 
-axios
-haversine
-minutes-seconds-milliseconds
-react-native-fade-image
-react-native-vector-icons
-react-navigation
-react-redux
-redux
-redux-promise
-tcomb-form-native
-toggle-switch-react-native
+* axios
+* haversine
+* minutes-seconds-milliseconds
+* react-native-fade-image
+* react-native-vector-icons
+* react-navigation
+* react-redux
+* redux
+* redux-promise
+* tcomb-form-native
+* toggle-switch-react-native
 
 
 ## Authors
