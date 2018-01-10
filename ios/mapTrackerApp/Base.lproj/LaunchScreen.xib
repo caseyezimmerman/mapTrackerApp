@@ -35,19 +35,8 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="37" y="2"/>
+            <point key="canvasLocation" x="136" y="-179"/>
         </view>
-        <viewController id="0nY-AA-24O">
-            <layoutGuides>
-                <viewControllerLayoutGuide type="top" id="ByD-TA-ajT"/>
-                <viewControllerLayoutGuide type="bottom" id="cBM-ag-IY8"/>
-            </layoutGuides>
-            <view key="view" contentMode="scaleToFill" id="UjQ-vn-C2m">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            </view>
-        </viewController>
     </objects>
     <resources>
         <image name="launch-screen-shoe2.png" width="201" height="227"/>
