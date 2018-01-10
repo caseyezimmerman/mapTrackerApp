@@ -18,11 +18,11 @@ const ProfileScreen = () => <Profile />
 
 // adjust this for navbar
 const NavBarConfig = {
-  SignUp: { 
-    screen: SignUp,
-    navigationOptions:{
+  Login:{
+    screen: Login,
+    navigationOptions: {
       tabBarVisible: false,
-      tabBarLabel: 'SignUp',
+      tabBarLabel: 'Login',
       tabBarIcon: ({ focused }) => (
         <Ionicons
           name={focused ? 'ios-people' : 'ios-people-outline'}
@@ -32,11 +32,11 @@ const NavBarConfig = {
       ),
     }
   },
-  Login:{
-    screen: Login,
-    navigationOptions: {
-      tabBarVisible: false,
-      tabBarLabel: 'Login',
+  SignUp: { 
+    screen: SignUp,
+    navigationOptions:{
+      // tabBarVisible: false,
+      tabBarLabel: 'SignUp',
       tabBarIcon: ({ focused }) => (
         <Ionicons
           name={focused ? 'ios-people' : 'ios-people-outline'}

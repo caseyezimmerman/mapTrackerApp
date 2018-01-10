@@ -179,7 +179,7 @@ class MapTracker extends Component {
           <View style={styles.bottomBarGroup}>
             <Text style={styles.bottomBarContent}></Text>
           </View>
-          <Text style={styles.counter}>{this.state.minutes}:{this.state.counter}</Text>
+          <Text style={styles.counter}>0:{this.state.minutes}:{this.state.counter}</Text>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <TouchableOpacity
                   style={styles.button2}
@@ -279,9 +279,9 @@ const styles = StyleSheet.create({
   },
   counter: {
       position:'absolute',
-      fontSize: 45,
+      fontSize: 42,
       height: 60,
-      left:125,
+      left:110,
       bottom:18
   },
   miniCounter: {
