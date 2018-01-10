@@ -32,17 +32,21 @@ class Results extends Component{
   	console.log(distance)
   	}
   	var calories = ((this.props.results.data.distance)*100).toFixed(2)
-  	var percent = (distance)*10
+  	var percent = (distance)*100
+  	console.log(percent)
     return (
-    <View>
-    	<ProgressCircle
-            percent={percent}
-            radius={80}
-            borderWidth={8}
-            color="#3399FF"
-            shadowColor="#999"
-            bgColor="#fff"
-        /> 
+    <ScrollView>
+    	<View style={styles.progress}>
+	    	<ProgressCircle
+	            percent={percent}
+	            radius={120}
+	            borderWidth={10}
+	            color="#eb8124"
+	            shadowColor="lightgrey"
+	            bgColor="white"
+	            // containerStyle={{backgroundColor:'red', position:'absolute', left:30}}
+	        /> 
+        </View>
         <Text style={styles.miles}>{distance} miles</Text>
 		<Ionicons
             name={'md-alarm'}
@@ -56,7 +60,7 @@ class Results extends Component{
         ></Ionicons>
     	<Text style={styles.time}>{minutes}:{seconds}</Text>
     	<Text style={styles.cal}>{calories}</Text>
-    </View>
+    </ScrollView>
     )
   }
 }
@@ -79,13 +83,20 @@ const styles = StyleSheet.create({
 	},
 	image:{
 		marginLeft:45,
-		marginTop:70,
+		marginTop:200,
+	},
+	progress:{
+		flex:1,
+		backgroundColor:'red',
+		height:0
+		// justifyContent:'center'
 	},
 	miles:{
-		fontSize:40,
+		fontSize:35,
 		position:'absolute',
 		left:100,
-		top:170
+		top:300,
+		backgroundColor:'transparent'
 	},
 	timeIcon:{
 		position:'absolute',
