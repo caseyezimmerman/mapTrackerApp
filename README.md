@@ -1,11 +1,12 @@
 # Trackr
 
-A react native application that tracks your run and tells you your distance ran,calories burned, and path you took.  This application is supported by an Express server, MySQL database, and Google Maps API.
+A React Native application that tracks your run and tells you your distance ran,calories burned, and path you took.  This application is supported by an Express server, MySQL database, and Google Maps API.
 
 ## Built With
 
 * [React-Native](https://facebook.github.io/react-native/) - The front-end framework used
 * [Express](https://expressjs.com/) - The back-end framework used.
+* [MySQL](https://www.mysql.com/) - The database used.
 * [Google Maps API](https://developers.google.com/maps/) - Used for Geolocation.
 
 ## Node Module Dependencies
