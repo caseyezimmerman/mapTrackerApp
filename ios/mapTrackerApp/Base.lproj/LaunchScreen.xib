@@ -21,10 +21,10 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launch-screen-shoe.png" translatesAutoresizingMaskIntoConstraints="NO" id="oEr-UJ-jja">
-                    <rect key="frame" x="121" y="130" width="239" height="221"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launch-screen-shoe2.png" translatesAutoresizingMaskIntoConstraints="NO" id="oEr-UJ-jja">
+                    <rect key="frame" x="121" y="106" width="239" height="269"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.19915378093719482" green="0.47869324684143066" blue="0.69637519121170044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.98518204057366532" green="0.9995725169170645" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,6 +50,6 @@
         </viewController>
     </objects>
     <resources>
-        <image name="launch-screen-shoe.png" width="227" height="201"/>
+        <image name="launch-screen-shoe2.png" width="201" height="227"/>
     </resources>
 </document>
