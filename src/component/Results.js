@@ -35,8 +35,8 @@ class Results extends Component{
   	var percent = (distance)*100
   	console.log(percent)
     return (
-    <ScrollView>
-    	<View style={styles.progress}>
+    <ScrollView style={{backgroundColor:'#337ab2'}}>
+    	<View>
 	    	<ProgressCircle
 	            percent={percent}
 	            radius={120}
